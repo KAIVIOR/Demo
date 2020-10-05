@@ -6,9 +6,47 @@
 //
 
 import SwiftUI
+struct light:Shape{
+    func path(in rect:CGRect)->Path{
+        Path{(path)in
+        
+        path.move(to:CGPoint(x:205,y:268))
+        path
+            .addQuadCurve(to:CGPoint(x:189,y:289),control:CGPoint(x:189, y:289))
+        path
+            .addQuadCurve(to:CGPoint(x:198,y:289),control:CGPoint(x:198, y:289))
+        path
+            .addQuadCurve(to:CGPoint(x:183,y:310),control:CGPoint(x:183, y:310))
+        path
+            .addQuadCurve(to:CGPoint(x:209,y:284),control:CGPoint(x:209, y:284))
+        path
+            .addQuadCurve(to:CGPoint(x:199,y:284),control:CGPoint(x:199, y:284))
+        path
+            .addQuadCurve(to:CGPoint(x:205,y:268),control:CGPoint(x:205, y:268))
+        
+        }
+        
+    }
+    
+}
 
+struct lightView:View{
+    var body:some View{
+    
+        light().position(x: 100, y: 100)
+        
+    
+    }
+    
+}
+ 
 struct ContentView: View {
     var body: some View {
+       
+        
+        
+        
+        
         
         
         
@@ -21,8 +59,11 @@ struct ContentView: View {
                 .edgesIgnoringSafeArea(.all)
         
             
-        Group{
-      
+            
+            Group{
+               
+               
+                
             Path{(path) in
                 
                 path.move(to: CGPoint(x:194,y:238))
@@ -132,7 +173,7 @@ struct ContentView: View {
                 
             }
             //紅色
-            .fill(Color(red:199/255,green:67/255,blue:42/255))
+            .fill(Color(red:191/255,green:255/255,blue:50/255))
             
             
             Path{(path) in
@@ -284,7 +325,7 @@ struct ContentView: View {
              
             }.fill(Color(red:1,green:1,blue:1))
             
-            
+           
             //皮膚
             Path{(path)in
                 path.move(to: CGPoint(x: 140, y: 231))
@@ -311,6 +352,8 @@ struct ContentView: View {
                 
                 
             }.stroke(Color(red:0,green:0,blue:0),lineWidth: 1)
+            
+            
         Path{(path)in
             
             
@@ -389,6 +432,8 @@ struct ContentView: View {
             
             path.addQuadCurve(to:CGPoint(x:140,y:325),control:CGPoint(x:140, y:320))
             
+            
+            
             //褲子的部分
             path.move(to: CGPoint(x:145,y:360))
             
@@ -400,6 +445,7 @@ struct ContentView: View {
             
             path.addQuadCurve(to:CGPoint(x:204,y:363),control:CGPoint(x:204, y:370))
             //右邊褲子的部分
+            
             
             path.move(to: CGPoint(x:192,y:373))
             
@@ -501,8 +547,22 @@ struct ContentView: View {
         
             Group{
                 
+                light()
+                    .fill(Color.orange)
+                    .position(x: 140, y: 190)
+                
+              
+                light()
+                    .fill(Color.orange)
+                    .position(x: 180, y: 190)
                 
                 
+                light()
+                    .fill(Color.orange)
+                    .position(x: 220, y: 190)
+                
+                
+                    
         Path{(path) in
             
             path.move(to:CGPoint(x:205,y:268))
@@ -543,13 +603,19 @@ struct ContentView: View {
         }
             
         }.offset(x: 20, y: 250)
-            
+            Text("THE FLASH !!!!").foregroundColor(Color.white)
+                
+                .offset(x: 100, y: -100)
         }
     
     }
    
 }
-
+struct ContentView_LibraryContent: LibraryContentProvider {
+    static var views: [LibraryItem] {
+        [LibraryItem(ContentView(), title: "OAO")]
+    }
+}
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
